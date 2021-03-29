@@ -1,0 +1,16 @@
+<div class="card my-2 mx-2 p-2" style="width: 13rem; height: 19rem;" *ngFor="let entity of entityObject">
+  <img class="card-img-top" src='../../../assets/laranja.jpg' alt="Card image cap">
+  <div class="card-body">
+    <h6 class="card-title text-left">{{ entity.name }}</h6>
+    <h6 class="card-title text-left">R${{ entity.price }}</h6>
+      <div class="number-input row">
+        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+        <input class="quantity" min="0" name="quantity" value="1" type="number" max="100">
+        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+      </div>
+      <div class="row">
+        <button class="btn btn-success my-2" (click)="addCarrinho(entity)">Add Carrinho</button>
+      </div>
+    </div>
+</div>
+

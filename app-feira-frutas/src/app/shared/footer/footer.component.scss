@@ -1,0 +1,50 @@
+#foot {
+  position: relative;
+  color: white;
+  width: 100%;
+  background: linear-gradient(45deg, #0f490f, #218321 90%);
+  padding: 20px;
+}
+
+a {
+  font-size: 16px;
+  color: white;
+}
+
+#rodape {
+  padding: 20px;
+  border-top: 1px solid white;
+}
+
+#rodape p {
+  margin-left: 20px;
+}
+
+#principal {
+  padding: 80px;
+  font-size: 20px;
+}
+
+#principal a {
+  margin-right: 10px;
+}
+
+.linha-vertical {
+  height: 25px;
+  border-left: 1px solid white;
+}
+
+#social {
+  font-size: 30px;
+  margin-left: 20px;
+}
+
+i {
+  font-size: 25px;
+  margin-left: 5px;
+}
+
+#logo {
+  width: 170px;
+  margin-left: 20px;
+}
