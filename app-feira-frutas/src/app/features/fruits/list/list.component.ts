@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { query } from '@angular/animations';
+import { stringify } from '@angular/compiler/src/util';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-fruits-list',
@@ -7,52 +9,83 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
+
+  listaCarrinho = [];
+
   fruits = [
     {
       id: 1,
+      qtd: '',
       name: 'Laranja',
       price: 3,
     },
     {
       id: 2,
-      name: 'Laranja',
-      price: 2
+      qtd: '',
+      name: 'Kiwi',
+      price: 10
     },
     {
       id: 3,
-      name: 'Laranja',
-      price: 2
+      qtd: '',
+      name: 'Melancia',
+      price: 1
     },
     {
       id: 4,
-      name: 'Laranja',
-      price: 2
+      qtd: '',
+      name: 'Melão',
+      price: 5
     },
     {
       id: 5,
-      name: 'Laranja',
-      price: 2
+      qtd: '',
+      name: 'Uva',
+      price: 6
     },
     {
       id: 6,
-      name: 'Laranja',
-      price: 2
+      qtd: '',
+      name: 'Maçã',
+      price: 3
     },
     {
       id: 7,
-      name: 'Laranja',
-      price: 2
+      qtd: '',
+      name: 'Tangerina',
+      price: 4
     },
     {
       id: 8,
-      name: 'Laranja',
-      price: 2
+      qtd: '',
+      name: 'Mamão',
+      price: 3
     },
   ];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+ total = 0;
+  addCarrinho(fruit) {
+    this.listaCarrinho.push(fruit);
+  }
+  removerItem(listaCarrinho ,id) {
+
+    var result = listaCarrinho.filter(function(el) {
+      return el.id == id;
+    });
+
+    for(var elemento of result){
+      var index = listaCarrinho.indexOf(elemento);
+      listaCarrinho.splice(index, 1);
+    }
+  }
+
+  Comprar(){
+    alert('Comprado com sucesso')
+    location.reload(true);
   }
 
 }

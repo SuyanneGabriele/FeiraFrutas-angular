@@ -1,5 +1,44 @@
-<div id="lista-index">
+<div class="row">
 
-  <app-list [entityObject]='fruits'></app-list>
+  <div class="col-8">
+    <div class="card my-2 mx-2 p-2" style="width: 13rem; height: 19rem;" *ngFor="let fruit of fruits">
+      <img class="card-img-top" src='../../../assets/laranja.jpg' alt="Card image cap">
+      <div class="card-body">
+        <h6 class="card-title text-left">{{ fruit.name }}</h6>
+        <h6 class="card-title text-left">R${{ fruit.price }}</h6>
+        <div class="number-input row">
+          <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+          <input class="quantity" min="0" name="quantity" value="1" type="number" max="100">
+          <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+        </div>
+          <div class="row">
+            <button class="btn btn-success my-2" (click)="addCarrinho(fruit)">Add Carrinho</button>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <h3>Carrinho de Compras</h3>
+    <table class="table col-6">
+      <thead>
+        <tr>
+          <th scope="col">Produto</th>
+          <th scope="col">Qtd</th>
+          <th scope="col">Preço</th>
+          <th scope="col">Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listaCarrinho; let i = index">
+          <td>{{ item.name }}</td>
+          <td>1</td>
+          <td>R${{ item.price }},00</td>
+          <td><button class="btn btn-danger" (click)='removerItem(listaCarrinho, item.id)'>Remover</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-success" (click)='Comprar()'>Comprar</button>
+  </div>
 
 </div>
